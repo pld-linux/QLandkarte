@@ -50,4 +50,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc INSTALL changelog.txt index.html
 %attr(755,root,root) %{_bindir}/QLandkarte
+%dir %{_libdir}/qlandkarte
 %attr(755,root,root) %{_libdir}/qlandkarte/*.so
