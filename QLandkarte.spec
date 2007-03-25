@@ -4,13 +4,14 @@ Summary:	Garmin's MapSource clone for linux
 Summary(pl.UTF-8):	Klon MapSource pod linuxa
 Name:		QLandkarte
 Version:	0.2.2.%{fver}
-Release:	0.3
+Release:	0.4
 License:	GPL
 Group:		Applications
 Source0:	http://dl.sourceforge.net/qlandkarte/%{name}.%{fver}.tar.gz
 # Source0-md5:	072a0481078640b8d55961c7f9148153
 Patch0:		%{name}-destdir.patch
 Patch1:		%{name}-opt.patch
+Patch2:		%{name}-Vista.patch
 URL:		http://qlandkarte.sourceforge.net
 BuildRequires:	QtCore-devel > 4.2.0
 BuildRequires:	QtGui-devel
@@ -29,6 +30,7 @@ Klon MapSource pod linuxa
 %setup -q -n %{name}.%{fver}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 qt4-qmake "QMAKE_CXXFLAGS_RELEASE=%{rpmcxxflags}" \
