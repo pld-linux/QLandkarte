@@ -1,7 +1,7 @@
 
 %define	fver 2007.03.16
-Summary:	Garmin's MapSource clone for linux
-Summary(pl.UTF-8):	Klon MapSource pod linuxa
+Summary:	Garmin's MapSource clone for Linux
+Summary(pl.UTF-8):	Klon MapSource pod Linuksa
 Name:		QLandkarte
 Version:	0.2.2.%{fver}
 Release:	0.4
@@ -21,10 +21,10 @@ BuildRequires:	qt4-qmake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Garmin's MapSource clone for linux
+Garmin's MapSource clone for Linux.
 
 %description -l pl.UTF-8
-Klon MapSource pod linuxa
+Klon MapSource pod Linuksa.
 
 %prep
 %setup -q -n %{name}.%{fver}
@@ -39,7 +39,6 @@ qt4-qmake "QMAKE_CXXFLAGS_RELEASE=%{rpmcxxflags}" \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{_bindir}
 
 %{__make} install \
