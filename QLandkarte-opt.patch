@@ -1,9 +1,0 @@
-diff -uNdr QLandkarte.2007.03.16.old/common QLandkarte.2007.03.16/common
---- QLandkarte.2007.03.16.old/common	2007-03-04 10:48:56.000000000 +0100
-+++ QLandkarte.2007.03.16/common	2007-03-23 21:04:02.000000000 +0100
-@@ -1,5 +1,3 @@
- QLANDKARTE_LIBDIR = /usr/lib/qlandkarte
- DEFINES += QL_LIBDIR=$${QLANDKARTE_LIBDIR} QT_NO_DEBUG_OUTPUToff
- CONFIG += debug
--QMAKE_CXXFLAGS_RELEASE += -O3
--QMAKE_CXXFLAGS_DEBUG += -O3
