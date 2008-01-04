@@ -6,7 +6,7 @@ Name:		QLandkarte
 Version:	0.5.2.%{fver}
 Release:	0.2
 License:	GPL
-Group:		Applications
+Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/qlandkarte/%{name}.%{fver}.tar.gz
 # Source0-md5:	968f87bcdea8d476fe1d91844db55f56
 URL:		http://qlandkarte.sourceforge.net
