@@ -16,8 +16,8 @@ BuildRequires:	QtXml-devel
 BuildRequires:	QtNetwork-devel
 BuildRequires:	libusb-devel
 BuildRequires:	proj-devel
-BuildRequires:	qt4-qmake
-BuildRequires:	qt4-build
+BuildRequires:	qt4-build >= 4.3.3-3
+BuildRequires:	qt4-qmake >= 4.3.3-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,7 +30,8 @@ Klon MapSource pod Linuksa.
 %setup -q -n %{name}
 
 %build
-qt4-qmake "QMAKE_CXXFLAGS_RELEASE=%{rpmcxxflags}" \
+qmake-qt4 \
+	"QMAKE_CXXFLAGS_RELEASE=%{rpmcxxflags}" \
 	-after CONFIG+=%{!?debug:release}%{?debug:debug} QLandkarte.pro
 %{__make}
 
