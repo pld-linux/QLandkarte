@@ -1,14 +1,14 @@
 
-%define	fver 2007.06.12
+%define	fver 2007.12.22
 Summary:	Garmin's MapSource clone for Linux
 Summary(pl.UTF-8):	Klon MapSource pod Linuksa
 Name:		QLandkarte
-Version:	0.5.2.%{fver}
-Release:	0.2
+Version:	0.6.0.%{fver}
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/qlandkarte/%{name}.%{fver}.tar.gz
-# Source0-md5:	968f87bcdea8d476fe1d91844db55f56
+# Source0-md5:	614cd25963e834fefcaea7137e2aa8d8
 URL:		http://qlandkarte.sourceforge.net
 BuildRequires:	QtCore-devel > 4.2.0
 BuildRequires:	QtGui-devel
