@@ -1,14 +1,12 @@
-
-%define	fver 2007.12.22
 Summary:	Garmin's MapSource clone for Linux
 Summary(pl.UTF-8):	Klon MapSource pod Linuksa
 Name:		QLandkarte
-Version:	0.6.0.%{fver}
-Release:	0.1
+Version:	0.7.3
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/qlandkarte/%{name}.%{fver}.tar.gz
-# Source0-md5:	614cd25963e834fefcaea7137e2aa8d8
+Source0:	http://dl.sourceforge.net/qlandkarte/%{name}_%{version}.tar.gz
+# Source0-md5:	51f804235511f1c10ae8538f86743135
 URL:		http://qlandkarte.sourceforge.net
 BuildRequires:	QtCore-devel > 4.2.0
 BuildRequires:	QtGui-devel
@@ -27,20 +25,22 @@ Garmin's MapSource clone for Linux.
 Klon MapSource pod Linuksa.
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{name}_%{version}
+%{__sed} -i 's:QMAKE_CXXFLAGS_RELEASE += -O3:QMAKE_CXXFLAGS_RELEASE +=:' common.in
 
 %build
-qmake-qt4 \
-	"QMAKE_CXXFLAGS_RELEASE=%{rpmcxxflags}" \
-	-after CONFIG+=%{!?debug:release}%{?debug:debug} QLandkarte.pro
+%configure \
+	--enable-release
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 %{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT%{_mandir}{,/man1}/*.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -48,6 +48,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc INSTALL changelog.txt index.html
-%attr(755,root,root) %{_bindir}/QLandkarte
+%attr(755,root,root) %{_bindir}/qlandkarte
 %dir %{_libdir}/qlandkarte
 %attr(755,root,root) %{_libdir}/qlandkarte/*.so
+%{_desktopdir}/qlandkarte.desktop
+%{_mandir}/man1/*.1.gz
